@@ -1,0 +1,38 @@
+<i class="pi pi-times closer" (click)="hide()"></i>
+<div i18n class="header">高级选项</div>
+
+<div class="appearance">
+  <p-dropdown tzeDropdownFix [autoDisplayFirst]="false"
+     [style]="{ 'min-width': '250px', 'max-width': '290px' }"
+     [options]="appearanceOptions" [(ngModel)]="settingsHolder.appearance" appendTo="body"></p-dropdown>
+  <div class="background-input-wrapper">
+    <div class="reset" (click)="settingsHolder.background = '#4D4D4D'">
+      <i class="pi pi-undo" [style.opacity]="settingsHolder.background === '#4D4D4D' ? '0' : '1'"></i>
+    </div>
+    <label i18n for="app-background">背景色</label>
+    <input id="app-background" name="clock-background" type="color" [(ngModel)]="settingsHolder.background">
+  </div>
+</div>
+
+<p-checkbox [(ngModel)]="settingsHolder.translucentEcliptic" [binary]="true"
+    i18n-label label="半透明黄道盘"></p-checkbox>
+
+<p-checkbox [(ngModel)]="settingsHolder.detailedMechanism" [binary]="true"
+    i18n-label label="机械细节丰富的钟面"></p-checkbox>
+
+<p-checkbox [(ngModel)]="settingsHolder.animateBySiderealDays" [binary]="true"
+    i18n-label label="利用恒星日快速动画"></p-checkbox>
+
+<p-checkbox [(ngModel)]="settingsHolder.fasterGraphics" [binary]="true"
+    i18n-label label="更快的图形/更少的阴影"></p-checkbox>
+
+<p-checkbox [(ngModel)]="settingsHolder.realPositionMarkers" [binary]="true"
+    i18n-label label="太阳/月亮真实位置标记"></p-checkbox>
+
+<p-checkbox [(ngModel)]="settingsHolder.additionalPlanets" [binary]="true"
+    i18n-label label="额外的行星标记"></p-checkbox>
+<p-checkbox [(ngModel)]="settingsHolder.showInfoPanel" [binary]="true"
+    i18n-label label="显示信息面板"></p-checkbox>
+
+<p-dropdown tzeDropdownFix [autoDisplayFirst]="false" class="timing" [panelStyle]="{ 'font-size': '13px' }"
+   [options]="timingOptions" [(ngModel)]="settingsHolder.timing" appendTo="body"></p-dropdown>
